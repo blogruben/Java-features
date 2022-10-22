@@ -1,57 +1,46 @@
 package libreriaPOIExcel.ExcelConBucle;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+
+
 public class Excel {
+    private String archivoExcelUrl;
+
     
-    
-    public void leerExcel(String fichero) {
+    public Excel(String archivoExcelUrl) {
+		super();
+		this.archivoExcelUrl = archivoExcelUrl;
+	}
 
-        try {
+	//Para los archivos xlsx tenemos que usar XSSF
+	//Para los archivos xls  tenemos que usar HSSF
 
-        	//"tmp/ExcelDeEjemplo.xlsx"
-            FileInputStream archivoExcel = new FileInputStream(new File(fichero));
-            //cargamos la informacion en la clase XSSFWorkbook
-            // teniendo en el clase de la libreria Poi de excel
-            //ya podemos trabajar con el
-            //recordar que XSSFWorkbook es para xlsx y
-            //HSSFWorkbook es para xls. Si no usamos la correcta no funciona.
-            XSSFWorkbook libro = new XSSFWorkbook(archivoExcel);
+	public void leerExcel() {
+        try (FileInputStream archivoExcel = new FileInputStream(new File(archivoExcelUrl));
+             XSSFWorkbook libro = new XSSFWorkbook(archivoExcel)) {
 
-            //abrimos la hoja uno, tambien podemos abrir la hoja op pestaña
-            //por su nombre, para abrir la pestaña "Ejemplo de escritura" sería:
             //libro.getSheet("Ejemplo de escritura");
             Sheet hoja = libro.getSheetAt(0);
-            //iteramos sobre la lineas del excel
             Iterator<Row> iterarLinea = hoja.iterator();
             while (iterarLinea.hasNext()) {
-
-            	//iteramos sobre la linea, para ver cada celda
                 Row linea = iterarLinea.next();
                 Iterator<Cell> iterarCelda = linea.iterator();
-                //esto es para pintar la informacion
-                //es buena practica que cuando usamos lo mismo
-                //en varios sitios, lo pongamos en una variable
-                //para modificarlo mas rapido en caso de cambio
-                //y evitar errores
                 String spacio = " //// ";
-
-                //iteramos sobre la celda
                 while (iterarCelda.hasNext()) {
-
-                	//recogemos el valor dela celda
                     Cell celda = iterarCelda.next();
 
-                    //dependiendo del tipo lo extraemos.
-                    //en importante de que tipo es para trabajar con ella
-                    //si un numero entero lo intentara guardar en un String daria error
                     switch (celda.getCellType()) {
                     case BOOLEAN :
                     	System.out.print("boolean:"+celda.getBooleanCellValue() + spacio);
@@ -66,12 +55,8 @@ public class Excel {
 						System.err.print("La celda no es de tipo boolean numerica ni string");
 						break;
                  }
-
-
                 }
                 System.out.println();
-
-
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -80,4 +65,55 @@ public class Excel {
         }
 
     }
+    
+    
+
+    public void escribirExcel(String fichero) {
+
+        try (XSSFWorkbook libro = new XSSFWorkbook();
+            FileOutputStream archivoExcel = new FileOutputStream(archivoExcelUrl)) {
+        	
+    	//Si intentamos conectarnos a un archivo xlsx con HSSF no funciona.
+        //XSSFSheet hoja = libro.getSheetAt(0);
+        XSSFSheet hoja = libro.createSheet("Ejemplo de escritura");
+
+        Object[][] conjuntoDeDatos = {
+                {"Código de causa", "Esta asignada?", "comentarios", "Numero de incidencias"},
+                {"xxxxxx1", true, "algo 1", 34},
+                {"xxxxxx1 de causa", true, "algo 2", 3},
+                {"xxxxxx1 de causa", false, "algo 3", 33},
+                {"xxxxxx1 de causa", true, "algo 4", 21},
+                {"xxxxxx1 de causa", true, "algo 5", 9},
+                {"xxxxxx1 de causa", false, "algo 5", 15}
+        };
+
+        int NumeroDeLinea = 0;
+
+        for (Object[] datatype : conjuntoDeDatos) {
+            Row linea = hoja.createRow(NumeroDeLinea++);
+            int NumeroDeLaColumna = 0;
+
+            for (Object field : datatype) {
+                Cell celda = linea.createCell(NumeroDeLaColumna++);
+                if (field instanceof String) {
+                    celda.setCellValue((String) field);
+                } else if (field instanceof Integer) {
+                    celda.setCellValue((Integer) field);
+                } else if (field instanceof Boolean) {
+                    celda.setCellValue((Boolean) field);
+                }
+            }
+        }
+            libro.write(archivoExcel);
+            libro.close();
+            
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Terminado");
+    }
+    
 }

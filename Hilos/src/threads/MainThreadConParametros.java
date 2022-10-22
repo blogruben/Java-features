@@ -14,5 +14,4 @@ public class MainThreadConParametros {
         hilo1.start();  
         hilo2.start();  
 	}
-
 }
