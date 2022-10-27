@@ -1,4 +1,4 @@
-package VentanaDialigo;
+package VentanaDialogo;
 
 import javax.swing.JOptionPane;
 
