@@ -1,4 +1,4 @@
-package ClaseAnidada;
+package claseAnidada;
 
 public class Main {
 

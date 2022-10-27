@@ -1,4 +1,4 @@
-package ConsumirVariasVecesUnStream;
+package consumirVariasVecesUnStream;
 
 public class Main {
 

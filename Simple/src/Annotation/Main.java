@@ -1,4 +1,4 @@
-package Annotation;
+package annotation;
 
 public class Main {
 	//https://docs.oracle.com/javase/tutorial/java/annotations/basics.html

@@ -1,4 +1,4 @@
-package HacerCondicionales;
+package hacerCondicionales;
 
 public class MainCortoCircuitoLogico {
 

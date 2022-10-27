@@ -1,4 +1,4 @@
-package Enumerador;
+package enumerador;
 
 public class MainEnum {
 
