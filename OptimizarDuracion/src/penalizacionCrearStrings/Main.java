@@ -1,4 +1,4 @@
-package penalizacionCrearString;
+package penalizacionCrearStrings;
 
 import java.time.Duration;
 import java.time.Instant;

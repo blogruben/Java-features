@@ -1,6 +1,6 @@
-package hacerUnSingletonPorCadaHilo;
+package hacerUnSingletonParaCadaHilo;
 
-import hacerUnSingletonPorCadaHilo.dominio.HiloSeguro;
+import hacerUnSingletonParaCadaHilo.dominio.HiloSeguro;
 
 public class CrearUnSingletonPorCadaHilo {
     public static void main(String[] args) {

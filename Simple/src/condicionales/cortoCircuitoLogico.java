@@ -1,6 +1,6 @@
-package hacerCondicionales;
+package condicionales;
 
-public class MainCortoCircuitoLogico {
+public class cortoCircuitoLogico {
 
 	@SuppressWarnings({ "unused", "null" })
 	public static void main(String[] args) {

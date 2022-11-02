@@ -1,6 +1,6 @@
-package hacerCondicionales;
+package condicionales;
 
-public class MainCortoCircuitoLogico2 {
+public class cortoCircuitoLogico2 {
 
 	public static void main(String[] args) {
 

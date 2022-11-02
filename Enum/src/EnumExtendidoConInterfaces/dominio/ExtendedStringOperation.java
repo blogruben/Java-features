@@ -1,4 +1,4 @@
-package herenciaEnumerador;
+package EnumExtendidoConInterfaces.dominio;
 
 
 public enum ExtendedStringOperation implements StringOperation {

@@ -1,4 +1,4 @@
-package herenciaEnumerador;
+package EnumExtendidoConInterfaces.dominio;
 
 public enum BasicStringOperation implements StringOperation{
     TRIM("Removing leading and trailing spaces.") {

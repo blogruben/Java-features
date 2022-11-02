@@ -1,4 +1,4 @@
-package penalizacionAbrirCerrarConexiones;
+package penalizacionAbrirCerrarConexion;
 
 import java.time.Duration;
 import java.time.Instant;

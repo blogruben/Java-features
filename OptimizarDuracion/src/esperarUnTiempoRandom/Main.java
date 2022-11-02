@@ -1,4 +1,4 @@
-package utilizarEsperarUnTiempoRandom;
+package esperarUnTiempoRandom;
 
 import java.time.Duration;
 import java.time.Instant;

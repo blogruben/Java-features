@@ -1,4 +1,4 @@
-package claseAnidada;
+package ejemploClaseAnidada;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package hacerUnSingletonPorCadaHilo.dominio;
+package hacerUnSingletonParaCadaHilo.dominio;
 
 public class Singleton {
 

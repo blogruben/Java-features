@@ -1,4 +1,4 @@
-package hacerUnSingletonPorCadaHilo.dominio;
+package hacerUnSingletonParaCadaHilo.dominio;
 
 import java.util.Random;
 
