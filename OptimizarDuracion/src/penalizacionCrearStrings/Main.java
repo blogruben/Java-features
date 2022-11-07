@@ -17,9 +17,6 @@ public class Main {
 		//System.out.println(x);
 		System.out.println("Duracion: " + Duration.between(start, Instant.now()));
 		
-		
-		
-		
 		Instant start2 = Instant.now();
 		StringBuilder str = new StringBuilder();
         str.append("inicio");
@@ -28,9 +25,7 @@ public class Main {
 		}
 		//System.out.println(str);
 		System.out.println("Duracion: " + Duration.between(start2, Instant.now()));
-		
-		
-		
+
 	}
 
 }
