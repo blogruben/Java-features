@@ -31,7 +31,7 @@ public class CRUD<T> {
 		for (Field field : fields) {
 			System.out.println(field.getName());
 			field.setAccessible(true);
-			field.get(type) !=
+			field.get(type);
 		}
 
 	}
@@ -42,8 +42,8 @@ public class CRUD<T> {
 				return false;}
 		else if (any instanceof String) {
 			return !any.equals("");
-		}else if (any instanceof int) {
-			return any == 0;
+		}else if (any instanceof Integer) {
+			return !any.equals(0);
 		}
 		return true;
 	}	

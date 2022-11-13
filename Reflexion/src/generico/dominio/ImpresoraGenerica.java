@@ -1,10 +1,10 @@
 package generico.dominio;
 
-public class Impresora <T>{//Por convencion se usa T de tipo Type
+public class ImpresoraGenerica <T>{//Por convencion se usa T de tipo Type
 
 	T paraImprimir;
 	
-	public Impresora(T paraImprimir) {
+	public ImpresoraGenerica(T paraImprimir) {
 	this.paraImprimir = paraImprimir;
 }
 
