@@ -7,7 +7,7 @@ public class CapturarErrorNoControlado {
 		try {
 			CapturarErrorNoControlado main = new CapturarErrorNoControlado();
 			main.tareaConErrores();
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			System.out.println("Error no controlado");
 		}
 
@@ -24,7 +24,7 @@ public class CapturarErrorNoControlado {
 			System.out.println(x);
 		} catch (NumberFormatException e) {
 			System.out.println("ERROR al parse el string a int");
-		}
+		} 
 	}
 
 }
