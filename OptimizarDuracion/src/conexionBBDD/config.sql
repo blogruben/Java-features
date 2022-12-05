@@ -1,6 +1,0 @@
-CREATE OR REPLACE DATABASE ejemplosDB;
-USE ejemplosDB;
-CREATE OR REPLACE TABLE Persona 
-(nombre VARCHAR(255), 
-apellido VARCHAR(255),
-dni VARCHAR(255));

@@ -1,5 +1,0 @@
-CREATE OR REPLACE DATABASE ejemplosDB;
-USE ejemplosDB;
-CREATE OR REPLACE TABLE Persona 
-(id INTEGER not NULL, nombre VARCHAR(255), 
-apellido VARCHAR(255), edad INTEGER, PRIMARY KEY ( id ));
